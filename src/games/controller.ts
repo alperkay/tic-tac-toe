@@ -1,5 +1,5 @@
 // src/games/controller.ts
-import { JsonController, Get, Param, NotFoundError, Put, Body, HttpCode, Post } from 'routing-controllers'
+import { JsonController, Get, Param, NotFoundError, Put, Body, HttpCode, Post, BadRequestError } from 'routing-controllers'
 import Game from './entity'
 import {moves, colors} from './logic'
 
@@ -27,13 +27,12 @@ export default class GameController {
     const game = await Game.findOne(id)
     if (!game) throw new NotFoundError('Cannot find game')
     if (update.color) {
-      if (!colors.includes(update.color)) throw new NotFoundError('cant change color like that')
+      if (!colors.includes(update.color)) throw new BadRequestError('cant change color like that')
     }
     if (update.board) {
-      if (moves(game.board,update.board)>=2) throw new NotFoundError('dont cheat fool!')
+      if (moves(game.board,update.board)>=2) throw new BadRequestError('dont cheat fool!')
     }
     return Game.merge(game, update).save()
-    console.log(typeof update)
   }
 
   @Post('/games')
