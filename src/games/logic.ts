@@ -1,3 +1,15 @@
+//default board 
+export type BoardType = [
+  [string, string, string],
+  [string, string, string],
+  [string, string, string]
+]
+
+export const defaultBoard: BoardType = [
+  ['o', 'o', 'o'],
+  ['o', 'o', 'o'],
+  ['o', 'o', 'o']
+]
 
 //returning random color 
 export const colors = ["red","blue","green","yellow","magenta"]
