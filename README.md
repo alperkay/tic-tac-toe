@@ -1,5 +1,5 @@
 # tic-tac-toe
-Creating the backend logic and database for the tic tac toe game with Typescript and TypeORM. This is one of the assignments during bootcamp. 
+Creating the backend logic and database for the tic tac toe game with Typescript and TypeORM. This is one of the assignments during the bootcamp. 
 
 
 These are the steps to create a basic backend (API-only):
